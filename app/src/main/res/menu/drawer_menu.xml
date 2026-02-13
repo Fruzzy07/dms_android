@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/nav_home"
+        android:icon="@drawable/ic_home"
+        android:title="Главная"
+        android:checkable="true"/>
+
+    <item
+        android:id="@+id/nav_profile"
+        android:icon="@drawable/ic_profile"
+        android:title="Личная информация"
+        android:checkable="true"/>
+
+    <item
+        android:id="@+id/nav_living"
+        android:icon="@drawable/ic_housing"
+        android:title="Проживание"
+        android:checkable="true"/>
+
+    <item
+        android:id="@+id/nav_sport"
+        android:icon="@drawable/ic_sport"
+        android:title="Запись на физкультуру"
+        android:checkable="true"/>
+
+    <item
+        android:id="@+id/nav_docs"
+        android:icon="@drawable/ic_doc"
+        android:title="Мои запросы"
+        android:checkable="true"/>
+
+    <item
+        android:id="@+id/nav_finance"
+        android:icon="@drawable/ic_money"
+        android:title="Финансовый кабинет"
+        android:checkable="true"/>
+
+    <item
+        android:id="@+id/nav_repair"
+        android:icon="@drawable/ic_repair"
+        android:title="Запросы на ремонт"
+        android:checkable="true"/>
+
+    <!-- Новый пункт выхода -->
+    <item
+        android:id="@+id/nav_logout"
+        android:icon="@drawable/ic_logout"
+        android:title="Выход"
+        android:checkable="true"/>
+
+</menu>

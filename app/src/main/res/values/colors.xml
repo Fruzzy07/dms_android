@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_dark">#4A148C</color>
+    <color name="bg_purple">#D9C8FF</color>
+    <color name="purple_checked">#9D8DE1</color>
+    <color name="grey">#BDBDBD</color>
+    <color name="white">#FFFFFF</color>
+    <color name="purple">#4A148C</color>
+    <color name="blue">#2502ED</color>
+    <color name="black">#000000</color>
+    <color name="residence_green">#DDF7E9</color>
+    <color name="residence_red">#FCE0E0</color>
+</resources>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="48dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingStart="16dp"
+    android:paddingEnd="16dp">
+
+    <!-- Иконка -->
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        app:tint="#6B7280" />
+
+    <!-- Текст -->
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_weight="1"
+        android:textSize="14sp"
+        android:textColor="#111827"/>
+
+    <!-- Индикатор СПРАВА -->
+    <View
+        android:id="@+id/indicator"
+        android:layout_width="4dp"
+        android:layout_height="match_parent"
+        android:background="#5B5FFF"
+        android:visibility="gone" />
+
+</LinearLayout>

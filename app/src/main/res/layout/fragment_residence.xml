@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- =============== MODE: SELECT ROOM (как на 1 фото) =============== -->
+        <LinearLayout
+            android:id="@+id/selectResidenceContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Внешняя карточка -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="18dp"
+                app:strokeColor="#888888"
+                app:strokeWidth="2dp"
+                android:padding="16dp">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <!-- Заголовок -->
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Выбор комнаты"
+                        android:textSize="20sp"
+                        android:textColor="#000000"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:layout_marginBottom="16dp"
+                        android:layout_marginLeft="16dp"
+                        android:layout_marginTop="16dp"
+                        android:layout_gravity="start"/>
+
+                    <!-- Внутренняя карточка (уменьшенная) -->
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:cardCornerRadius="10dp"
+                        app:cardElevation="4dp"
+                        app:strokeColor="#888888"
+                        app:strokeWidth="1dp"
+                        android:padding="8dp"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginEnd="16dp"
+                        android:layout_marginBottom="16dp">
+
+                        <LinearLayout
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <!-- Корпус -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Корпус"
+                                android:textColor="#000000"
+                                android:textSize="14sp"
+                                android:layout_marginStart="16dp"
+                                android:layout_marginTop="16dp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:layout_marginBottom="10dp"/>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundMode="outline"
+                                app:boxBackgroundColor="#FFFFFF"
+                                app:boxStrokeColor="#4A148C"
+                                app:boxCornerRadiusTopStart="10dp"
+                                app:boxCornerRadiusTopEnd="10dp"
+                                app:boxCornerRadiusBottomStart="10dp"
+                                app:boxCornerRadiusBottomEnd="10dp"
+                                app:hintEnabled="false">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/selectBuilding"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#000000"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/montserrat_bold"
+                                    android:hint="Выберите корпус"
+                                    android:paddingStart="10dp"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginEnd="16dp"
+                                    android:inputType="none"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <!-- Этаж -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Этаж"
+                                android:textColor="#000000"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginLeft="16dp"
+                                android:layout_marginBottom="10dp"/>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundMode="outline"
+                                app:boxBackgroundColor="#FFFFFF"
+                                app:boxStrokeColor="#4A148C"
+                                app:boxCornerRadiusTopStart="10dp"
+                                app:boxCornerRadiusTopEnd="10dp"
+                                app:boxCornerRadiusBottomStart="10dp"
+                                app:boxCornerRadiusBottomEnd="10dp"
+                                app:hintEnabled="false">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/selectFloor"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#000000"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/montserrat_bold"
+                                    android:hint="Выберите этаж"
+                                    android:paddingStart="10dp"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginEnd="16dp"
+                                    android:inputType="none"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                            <!-- Комната -->
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Комната"
+                                android:textColor="#000000"
+                                android:textSize="14sp"
+                                android:fontFamily="@font/montserrat_bold"
+                                android:layout_marginTop="20dp"
+                                android:layout_marginBottom="10dp"
+                                android:layout_marginLeft="16dp"/>
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                app:boxBackgroundMode="outline"
+                                app:boxBackgroundColor="#FFFFFF"
+                                app:boxStrokeColor="#4A148C"
+                                app:boxCornerRadiusTopStart="10dp"
+                                app:boxCornerRadiusTopEnd="10dp"
+                                app:boxCornerRadiusBottomStart="10dp"
+                                app:boxCornerRadiusBottomEnd="10dp"
+                                app:hintEnabled="false">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/selectRoom"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:textColor="#000000"
+                                    android:textSize="14sp"
+                                    android:fontFamily="@font/montserrat_bold"
+                                    android:hint="Выберите комнату"
+                                    android:layout_marginStart="16dp"
+                                    android:layout_marginLeft="16dp"
+                                    android:layout_marginBottom="30dp"
+                                    android:paddingStart="10dp"
+                                    android:inputType="none"/>
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <!-- Кнопка заселиться -->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/checkInButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginTop="50dp"
+                        android:text="Заселиться"
+                        android:textColor="@android:color/white"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/montserrat_bold"
+                        app:cornerRadius="16dp"
+                        app:backgroundTint="#BDBDBD"
+                        android:textAllCaps="false"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="12dp"
+                        android:enabled="false"/>
+
+                    <!-- Статус заявки (pending) -->
+                    <TextView
+                        android:id="@+id/liveStatusText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="8dp"
+                        android:textColor="#4A148C"
+                        android:textSize="14sp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:visibility="gone"
+                        android:text="Запрос отправлен, ожидает подтверждения" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Превью (снизу: здания/этаж/комнаты/комната) с поддержкой зума/пана -->
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="18dp"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="10dp"
+                app:strokeColor="#888888"
+                app:strokeWidth="2dp">
+
+                <ImageView
+                    android:id="@+id/residencePreviewImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:padding="8dp"
+                    android:background="#FFFFFF"/>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+        <!-- =============== MODE: CURRENT RESIDENCE (как на 3 фото) =============== -->
+        <LinearLayout
+            android:id="@+id/currentResidenceContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <com.google.android.material.card.MaterialCardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="24dp"
+                app:cardElevation="18dp"
+                app:strokeColor="#888888"
+                app:strokeWidth="2dp"
+                android:padding="18dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/currentRoomText"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Ваша комната: -"
+                        android:textColor="#000000"
+                        android:textSize="16sp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:layout_marginBottom="16dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/changeRoomButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:text="Поменять комнату"
+                        android:textAllCaps="false"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/montserrat_bold"
+                        app:cornerRadius="20dp"
+                        app:backgroundTint="@color/residence_green"
+                        android:layout_marginBottom="16dp" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/evictButton"
+                        android:layout_width="match_parent"
+                        android:layout_height="110dp"
+                        android:text="Выселиться"
+                        android:textAllCaps="false"
+                        android:textColor="#000000"
+                        android:textSize="18sp"
+                        android:fontFamily="@font/montserrat_bold"
+                        app:cornerRadius="20dp"
+                        app:backgroundTint="@color/residence_red" />
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
