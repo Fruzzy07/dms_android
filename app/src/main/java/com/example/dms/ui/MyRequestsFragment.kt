@@ -14,6 +14,9 @@ import com.example.dms.adapter.MyRequestsAdapter
 import com.example.dms.models.*
 import com.example.dms.network.RetrofitClient
 import com.example.dms.utils.SessionManager
+import com.google.android.material.button.MaterialButton
+import androidx.appcompat.app.AlertDialog
+import com.example.dms.MainActivity
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -39,7 +42,13 @@ class MyRequestsFragment : Fragment() {
         // 🔥 Анимация появления карточек
         rvRequests.layoutAnimation =
             AnimationUtils.loadLayoutAnimation(requireContext(), R.anim.layout_fall_down)
+
+        view.findViewById<MaterialButton>(R.id.btnNewRequest).setOnClickListener {
+            showNewRequestDialog()
+        }
     }
+
+
 
     override fun onResume() {
         super.onResume()
@@ -55,6 +64,25 @@ class MyRequestsFragment : Fragment() {
         } else {
             loadLocalRequests()
         }
+    }
+
+    private fun showNewRequestDialog() {
+        val items = arrayOf(
+            "Запрос на проживание",
+            "Запрос на ремонт",
+            "Запись на физкультуру"
+        )
+
+        AlertDialog.Builder(requireContext())
+            .setTitle("Новый запрос")
+            .setItems(items) { _, which ->
+                when (which) {
+                    0 -> (activity as? MainActivity)?.openLivingFromRequests()
+                    1 -> (activity as? MainActivity)?.openRepairFromRequests()
+                    2 -> (activity as? MainActivity)?.openSportsFromRequests()
+                }
+            }
+            .show()
     }
 
     private fun loadLiveRequestsFromApi(token: String) {
@@ -83,8 +111,7 @@ class MyRequestsFragment : Fragment() {
                             )
                         )
                     }
-                    loadLocalSportsRequests()
-                    updateRecyclerView()
+                    loadSportsRequestsFromApi(token)
                 } else {
                     loadLocalRequests()
                 }
@@ -94,6 +121,72 @@ class MyRequestsFragment : Fragment() {
                 if (!isAdded) return
                 Toast.makeText(requireContext(), "Ошибка загрузки: ${t.message}", Toast.LENGTH_SHORT).show()
                 loadLocalRequests()
+            }
+        })
+    }
+
+    private fun loadSportsRequestsFromApi(token: String) {
+        val api = RetrofitClient.getInstance(token)
+        api.getMyRequestsSports().enqueue(object : Callback<ApiResponse<List<RequestSports>>> {
+            override fun onResponse(
+                call: Call<ApiResponse<List<RequestSports>>>,
+                response: Response<ApiResponse<List<RequestSports>>>
+            ) {
+                if (!isAdded) return
+                val data = response.body()?.data
+                if (response.isSuccessful && data != null) {
+                    data.forEach { rs ->
+                        requests.add(
+                            MyRequest(
+                                id = rs.id,
+                                type = RequestType.SPORTS,
+                                title = "Запись на физкультуру",
+                                description = "${rs.sport}, ${rs.teacher}, ${rs.time}",
+                                status = rs.status,
+                                createdAt = rs.createdAt
+                            )
+                        )
+                    }
+                }
+                loadRepairRequestsFromApi(token)
+            }
+
+            override fun onFailure(call: Call<ApiResponse<List<RequestSports>>>, t: Throwable) {
+                if (!isAdded) return
+                loadRepairRequestsFromApi(token)
+            }
+        })
+    }
+
+    private fun loadRepairRequestsFromApi(token: String) {
+        val api = RetrofitClient.getInstance(token)
+        api.getMyRequestsRepair().enqueue(object : Callback<ApiResponse<List<RequestRepair>>> {
+            override fun onResponse(
+                call: Call<ApiResponse<List<RequestRepair>>>,
+                response: Response<ApiResponse<List<RequestRepair>>>
+            ) {
+                if (!isAdded) return
+                val data = response.body()?.data
+                if (response.isSuccessful && data != null) {
+                    data.forEach { rr ->
+                        requests.add(
+                            MyRequest(
+                                id = rr.id,
+                                type = RequestType.REPAIR,
+                                title = "Запрос на ремонт",
+                                description = rr.description,
+                                status = rr.status,
+                                createdAt = rr.createdAt
+                            )
+                        )
+                    }
+                }
+                updateRecyclerView()
+            }
+
+            override fun onFailure(call: Call<ApiResponse<List<RequestRepair>>>, t: Throwable) {
+                if (!isAdded) return
+                updateRecyclerView()
             }
         })
     }

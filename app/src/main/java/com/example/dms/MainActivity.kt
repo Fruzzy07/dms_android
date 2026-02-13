@@ -220,6 +220,29 @@ class MainActivity : AppCompatActivity() {
             .setTextColor(getColor(R.color.blue))
     }
 
+    // Переходы из фрагмента "Мои запросы"
+    fun openLivingFromRequests() {
+        highlightMenuItem(R.id.nav_living)
+        openFragment(ResidenceFragment(), R.id.nav_living, "Проживание")
+        drawerLayout.closeDrawer(GravityCompat.START)
+    }
+
+    fun openSportsFromRequests() {
+        highlightMenuItem(R.id.nav_sport)
+        openFragment(
+            SportsRegistrationFragment(),
+            R.id.nav_sport,
+            "Запись на занятие физкультурой"
+        )
+        drawerLayout.closeDrawer(GravityCompat.START)
+    }
+
+    fun openRepairFromRequests() {
+        highlightMenuItem(R.id.nav_docs)
+        openFragment(RepairRequestFragment(), R.id.nav_docs, "Запрос на ремонт")
+        drawerLayout.closeDrawer(GravityCompat.START)
+    }
+
 
 
 
